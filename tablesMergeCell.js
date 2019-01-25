@@ -29,16 +29,23 @@
             $table.data('col-content', '');     // 存放单元格内容
             $table.data('col-rowspan', 1);      // 存放计算的rowspan值 默认为1
             $table.data('col-td', $());         // 存放发现的第一个与前一行比较结果不同td(jQuery封装过的), 默认一个"空"的jquery对象
-            $table.data('trNum', $('tbody tr', $table).length);     // 要处理表格的总行数, 用于最后一行做特殊处理时进行判断之用
+            $table.data('trNum', $('tr', $table).length);     // 要处理表格的总行数, 用于最后一行做特殊处理时进行判断之用
             // 我们对每一行数据进行"扫面"处理 关键是定位col-td, 和其对应的rowspan
 
 
             
-            $(' tr', $table).each(function(index) {
+            $('tr', $table).each(function(index) {
                 var $tr = $(this);
                 console.log($tr)
                 // td:eq中的colIndex即列索引
                 var $td = $('td:eq(' + colIndex + ')', $tr);
+                /**
+                 * 目前 这个方法只要jq有 
+                 * zepto 没有 需要再次进行修改
+                 * 
+                 */
+                
+                
                 var currentContent = $td.html();
                 if(opts.automatic){     // 内容
                     // 第一次时走此分支
