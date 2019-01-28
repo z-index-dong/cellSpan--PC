@@ -42,8 +42,7 @@
                 /**
                  * 目前 这个方法只要jq有 
                  * zepto 没有 需要再次进行修改
-                 * 
-                 */
+                */
                 
                 
                 var currentContent = $td.html();
